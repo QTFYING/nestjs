@@ -1,0 +1,47 @@
+@hostname = http://localhost
+@port = 3000
+@host = {{hostname}}:{{port}}
+@ct = application/json
+
+
+### @name test
+GET {{host}} HTTP/1.1
+Content-Type: {{ct}}
+
+### @name ceate_post
+POST {{host}}/posts/create HTTP/1.1
+Accept: {{ct}}
+Content-Type: {{ct}}
+
+{
+  "title": "Nest入门到实践",
+  "author": "Virgo",
+  "content": "这是一篇用于nestjs入门的文章，看过该文章能掌握改库的基本用法。",
+  "cover_url": "https://p9-xtjj-sign.byteimg.com/tos-cn-i-73owjymdk6/07619ad363cd46738d56acf631991f59~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAgX2ppYW5n:q75.awebp?rk3s=f64ab15b&x-expires=1732101242&x-signature=ezgoFZKMy55m5UX%2BhU0cYDG7VhY%3D"
+}
+
+### @name post_list
+POST {{host}}/posts/list HTTP/1.1
+Accept: {{ct}}
+Content-Type: {{ct}}
+
+{
+  "title": "Nest入门到实践",
+  "author": "Virgo",
+  "content": "这是一篇用于nestjs入门的文章，看过该文章能掌握改库的基本用法。",
+  "cover_url": "https://p9-xtjj-sign.byteimg.com/tos-cn-i-73owjymdk6/07619ad363cd46738d56acf631991f59~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAgX2ppYW5n:q75.awebp?rk3s=f64ab15b&x-expires=1732101242&x-signature=ezgoFZKMy55m5UX%2BhU0cYDG7VhY%3D"
+}
+
+
+### @name get_tct_tenant_list
+POST https://opsefcs.qa.tongcaitong.com/tenant/getTenants HTTP/1.1
+Accept: {{ct}}
+Content-Type: {{ct}}
+Cookie: satoken=84161443-a12e-472c-836f-8c0cddd9b7b1
+
+{
+  "param": {
+    "pageNo": 1,
+    "pageSize": 10
+  }
+}
