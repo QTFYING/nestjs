@@ -21,7 +21,7 @@ Content-Type: {{ct}}
 }
 
 ### @name post_list
-POST {{host}}/posts/list HTTP/1.1
+POST {{host}}/posts/findAll HTTP/1.1
 Accept: {{ct}}
 Content-Type: {{ct}}
 

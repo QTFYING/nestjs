@@ -1,4 +1,4 @@
-import { Controller, Get, Post } from '@nestjs/common';
+import { Controller, Get, Param } from '@nestjs/common';
 import { AppService } from './app.service';
 
 @Controller()
@@ -10,8 +10,8 @@ export class AppController {
     return this.appService.getHello();
   }
 
-  @Post()
-  getList(): string {
-    return this.appService.getHello();
+  @Get('pinyin/:text')
+  getPinYin(@Param('text') text: string): string {
+    return this.appService.getPinYin(text);
   }
 }

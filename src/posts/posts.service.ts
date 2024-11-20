@@ -1,13 +1,12 @@
 import { HttpException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { getRepository, Repository } from 'typeorm';
-import { PostsEntity } from './entities/post.entity';
+import { PostsEntity } from './entities/posts.entity';
 
 export interface PostsRo {
   list: PostsEntity[];
   count: number;
 }
-
 @Injectable()
 export class PostsService {
   constructor(
@@ -29,7 +28,7 @@ export class PostsService {
   }
 
   // 获取文章列表
-  async list(query): Promise<PostsRo> {
+  async findAll(query): Promise<PostsRo> {
     const qb = await getRepository(PostsEntity).createQueryBuilder('post');
     qb.where('1 = 1');
     qb.orderBy('post.create_time', 'DESC');
