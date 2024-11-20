@@ -29,7 +29,7 @@ export class PostsService {
 
   // 获取文章列表
   async findAll(query): Promise<PostsRo> {
-    const qb = await getRepository(PostsEntity).createQueryBuilder('post');
+    const qb = await getRepository(PostsEntity).createQueryBuilder('posts');
     qb.where('1 = 1');
     qb.orderBy('post.create_time', 'DESC');
 

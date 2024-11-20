@@ -4,6 +4,7 @@ import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { PostsModule } from './posts/posts.module';
+import { PrismaClient } from '@prisma/client';
 import { envConfig, ormConnectOptions } from '../config';
 
 @Module({
@@ -13,6 +14,6 @@ import { envConfig, ormConnectOptions } from '../config';
     PostsModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, PrismaClient],
 })
 export class AppModule {}

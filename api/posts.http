@@ -4,11 +4,11 @@
 @ct = application/json
 
 
-### @name test
+### @name 测试接口是否通
 GET {{host}} HTTP/1.1
 Content-Type: {{ct}}
 
-### @name ceate_post
+### @name 创建帖子
 POST {{host}}/posts/create HTTP/1.1
 Accept: {{ct}}
 Content-Type: {{ct}}
@@ -20,17 +20,16 @@ Content-Type: {{ct}}
   "cover_url": "https://p9-xtjj-sign.byteimg.com/tos-cn-i-73owjymdk6/07619ad363cd46738d56acf631991f59~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAgX2ppYW5n:q75.awebp?rk3s=f64ab15b&x-expires=1732101242&x-signature=ezgoFZKMy55m5UX%2BhU0cYDG7VhY%3D"
 }
 
-### @name post_list
-POST {{host}}/posts/findAll HTTP/1.1
-Accept: {{ct}}
+### @name 获取帖子列表
+GET {{host}}/posts/findAll HTTP/1.1
 Content-Type: {{ct}}
 
 {
-  "title": "Nest入门到实践",
-  "author": "Virgo",
-  "content": "这是一篇用于nestjs入门的文章，看过该文章能掌握改库的基本用法。",
-  "cover_url": "https://p9-xtjj-sign.byteimg.com/tos-cn-i-73owjymdk6/07619ad363cd46738d56acf631991f59~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAgX2ppYW5n:q75.awebp?rk3s=f64ab15b&x-expires=1732101242&x-signature=ezgoFZKMy55m5UX%2BhU0cYDG7VhY%3D"
+  "pageNum": 1,
+  "pageSize": 10
 }
+
+
 
 
 ### @name get_tct_tenant_list
