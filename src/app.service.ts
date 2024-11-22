@@ -1,10 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import pinyin from 'pinyin';
-import { PrismaClient } from '@prisma/client';
 
 @Injectable()
 export class AppService {
-  constructor(private readonly appService: PrismaClient) {}
+  constructor() {}
 
   getHello(): string {
     return 'Hello World!';

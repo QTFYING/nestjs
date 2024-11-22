@@ -30,8 +30,6 @@ Content-Type: {{ct}}
 }
 
 
-
-
 ### @name get_tct_tenant_list
 POST https://opsefcs.qa.tongcaitong.com/tenant/getTenants HTTP/1.1
 Accept: {{ct}}
