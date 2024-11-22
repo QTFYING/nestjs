@@ -1,12 +1,12 @@
-import { PostsService, PostsRo } from './posts.service';
+import { PostsService } from './posts.service';
 import {
   Body,
   Controller,
-  Delete,
-  Get,
-  Param,
   Post,
   Put,
+  Get,
+  Delete,
+  Param,
   Query,
 } from '@nestjs/common';
 import { CreatePostDto } from './dto/create-post.dto';
@@ -15,26 +15,31 @@ import { CreatePostDto } from './dto/create-post.dto';
 export class PostsController {
   constructor(private readonly postsService: PostsService) {}
 
+  @Get()
+  getHello(): string {
+    return 'hello, welcome to posts';
+  }
+
   // 创建文章
-  @Post('/create')
+  @Post('/add')
   async create(@Body() post: CreatePostDto) {
     return await this.postsService.create(post);
   }
 
   // 获取所有文章
   @Get('/list')
-  async findAll(@Query() query): Promise<PostsRo> {
+  async findAll(@Query() query): Promise<any> {
     return await this.postsService.findAll(query);
   }
 
   // 获取指定文章
-  @Get(':id')
+  @Get('list/:id')
   async findById(@Param('id') id) {
     return await this.postsService.findById(id);
   }
 
   // 更新文章
-  @Put(':id')
+  @Put('list/:id')
   async update(@Param('id') id, @Body() post) {
     return await this.postsService.updateById(id, post);
   }

@@ -5,6 +5,7 @@
     "nestjs",
     "pymysql",
     "sqlalchemy",
+    "tinyint",
     "typeorm"
   ]
 }
