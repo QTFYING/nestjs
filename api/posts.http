@@ -4,9 +4,6 @@
 @ct = application/json
 
 
-### @name 测试接口是否通
-GET {{host}} HTTP/1.1
-Content-Type: {{ct}}
 
 ### @name 创建帖子
 POST {{host}}/posts/add HTTP/1.1
@@ -25,7 +22,7 @@ GET {{host}}/posts/list HTTP/1.1
 Content-Type: {{ct}}
 
 {
-  "pageNum": 1,
+  "pageNo": 1,
   "pageSize": 10
 }
 
@@ -34,11 +31,15 @@ Content-Type: {{ct}}
 POST https://opsefcs.qa.tongcaitong.com/tenant/getTenants HTTP/1.1
 Accept: {{ct}}
 Content-Type: {{ct}}
-Cookie: satoken=84161443-a12e-472c-836f-8c0cddd9b7b1
 
 {
-  "param": {
-    "pageNo": 1,
-    "pageSize": 10
-  }
+  "title": "帖子1",
+  "author": "作者1",
+  "content": "------1------",
+  "thumb_url": "",
+  "type": 1,
 }
+
+### @name 删除帖子
+Delete {{host}}/posts/list/1 HTTP/1.1
+Content-Type: {{ct}}

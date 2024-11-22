@@ -20,31 +20,31 @@ export class PostsController {
     return 'hello, welcome to posts';
   }
 
-  // 创建文章
+  // 创建帖子
   @Post('/add')
   async create(@Body() post: CreatePostDto) {
     return await this.postsService.create(post);
   }
 
-  // 获取所有文章
+  // 获取帖子列表
   @Get('/list')
   async findAll(@Query() query): Promise<any> {
     return await this.postsService.findAll(query);
   }
 
-  // 获取指定文章
+  // 获取指定帖子详情
   @Get('list/:id')
   async findById(@Param('id') id) {
     return await this.postsService.findById(id);
   }
 
-  // 更新文章
+  // 更新帖子
   @Put('list/:id')
   async update(@Param('id') id, @Body() post) {
     return await this.postsService.updateById(id, post);
   }
 
-  // 删除文章
+  // 删除帖子
   @Delete('id')
   async remove(@Param('id') id) {
     return await this.postsService.remove(id);

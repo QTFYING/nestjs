@@ -1,6 +1,6 @@
 import { HttpException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { getRepository, Repository } from 'typeorm';
+import { Repository } from 'typeorm';
 import { PostsEntity } from './entities/posts.entity';
 
 @Injectable()
@@ -21,14 +21,14 @@ export class PostsService {
 
   // 获取文章列表
   async findAll(query): Promise<{ list: PostsEntity[]; count: number }> {
-    const qb = await getRepository(PostsEntity).createQueryBuilder('post');
+    const qb = await this.postsRepository.createQueryBuilder('posts');
     qb.where('1 = 1');
-    qb.orderBy('post.create_time', 'DESC');
+    qb.orderBy('posts.create_time', 'DESC');
 
     const count = await qb.getCount();
-    const { pageNum = 1, pageSize = 10 } = query;
+    const { pageNo = 1, pageSize = 10 } = query;
     qb.limit(pageSize);
-    qb.offset(pageSize * (pageNum - 1));
+    qb.offset(pageSize * (pageNo - 1));
 
     const posts = await qb.getMany();
     return { list: posts, count: count };
@@ -40,7 +40,10 @@ export class PostsService {
   }
 
   // 更新文章
-  async updateById(id, post): Promise<PostsEntity> {
+  async updateById(
+    id: number,
+    post: Partial<PostsEntity>,
+  ): Promise<PostsEntity> {
     const existPost = await this.postsRepository.findOne({ where: { id } });
     if (!existPost) {
       throw new HttpException(`id为${id}的文章不存在`, 401);

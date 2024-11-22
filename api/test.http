@@ -1,0 +1,21 @@
+@hostname = http://localhost
+@port = 3000
+@host = {{hostname}}:{{port}}
+@ct = application/json
+
+### @name 测试接口是否通
+GET {{host}} HTTP/1.1
+Content-Type: {{ct}}
+
+### @name get_tct_tenant_list
+POST https://opsefcs.qa.tongcaitong.com/tenant/getTenants HTTP/1.1
+Accept: {{ct}}
+Content-Type: {{ct}}
+Cookie: satoken=84161443-a12e-472c-836f-8c0cddd9b7b1
+
+{
+  "param": {
+    "pageNo": 1,
+    "pageSize": 10
+  }
+}
