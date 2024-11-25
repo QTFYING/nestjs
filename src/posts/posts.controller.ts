@@ -45,7 +45,7 @@ export class PostsController {
   }
 
   // 删除帖子
-  @Delete('id')
+  @Delete('list/:id')
   async remove(@Param('id') id) {
     return await this.postsService.remove(id);
   }
