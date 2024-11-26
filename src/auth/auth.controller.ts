@@ -1,4 +1,5 @@
 import { Body, Controller, Post } from '@nestjs/common';
+import { Public } from 'src/common/decorators/public.decorator';
 import { AuthService } from './auth.service';
 import { CreateAuthDto } from './dto/create-auth.dto';
 
@@ -7,6 +8,7 @@ export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
   // 注册
+  @Public()
   @Post('/signup')
   signup(@Body() signupData: CreateAuthDto) {
     return this.authService.signup(signupData);

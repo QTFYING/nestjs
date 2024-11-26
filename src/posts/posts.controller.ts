@@ -1,15 +1,15 @@
-import { PostsService } from './posts.service';
 import {
   Body,
   Controller,
+  Delete,
+  Get,
+  Param,
   Post,
   Put,
-  Get,
-  Delete,
-  Param,
   Query,
 } from '@nestjs/common';
 import { CreatePostDto } from './dto/create-post.dto';
+import { PostsService } from './posts.service';
 
 @Controller('posts') // 路由控制器
 export class PostsController {

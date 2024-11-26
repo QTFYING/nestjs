@@ -1,5 +1,6 @@
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModuleAsyncOptions } from '@nestjs/typeorm';
+import { AuthEntity } from 'src/auth/entities/auth.entity';
 import { PostsEntity } from 'src/posts/entities/posts.entity';
 
 export const ormConnectOptions: TypeOrmModuleAsyncOptions = {
@@ -7,7 +8,7 @@ export const ormConnectOptions: TypeOrmModuleAsyncOptions = {
   inject: [ConfigService],
   useFactory: async (configService: ConfigService) => ({
     type: 'mysql',
-    entities: [PostsEntity],
+    entities: [AuthEntity, PostsEntity],
     host: configService.get('DB_HOST', 'localhost'),
     port: configService.get<number>('DB_PORT', 3306),
     username: configService.get('DB_USER', 'root'),

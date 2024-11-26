@@ -12,7 +12,7 @@ export class AuthService {
   constructor(
     @InjectRepository(AuthEntity)
     private readonly authRepo: Repository<AuthEntity>,
-    private readonly JwtService: JwtService,
+    private readonly jwtService: JwtService,
     private readonly redisService: RedisService,
   ) {}
 
@@ -51,7 +51,7 @@ export class AuthService {
     const payload = { username: targetUser.username };
 
     return {
-      access_token: this.JwtService.sign(payload),
+      access_token: this.jwtService.sign(payload),
       message: '登录成功',
     };
   }
