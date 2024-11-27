@@ -15,6 +15,7 @@ export class AuthController {
   }
 
   // 登录
+  @Public()
   @Post('/login')
   login(@Body() loginData: CreateAuthDto) {
     return this.authService.login(loginData);

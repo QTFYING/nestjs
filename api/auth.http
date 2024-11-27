@@ -1,0 +1,24 @@
+@hostname = http://localhost
+@port = 3000
+@host = {{hostname}}:{{port}}
+@ct = application/json
+
+### @name 登录
+POST {{host}}/auth/login HTTP/1.1
+Accept: {{ct}}
+Content-Type: {{ct}}
+
+{
+  "username": "你你你",
+  "password": "222222"
+}
+
+### @name 注册
+POST {{host}}/auth/signup HTTP/1.1
+Accept: {{ct}}
+Content-Type: {{ct}}
+
+{
+  "username": "你你你",
+  "password": "222222"
+}

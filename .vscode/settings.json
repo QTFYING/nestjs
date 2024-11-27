@@ -4,6 +4,7 @@
     "mydatabase",
     "nestjs",
     "pymysql",
+    "signup",
     "sqlalchemy",
     "tinyint",
     "typeorm"

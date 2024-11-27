@@ -1,4 +1,4 @@
 export const jwtConstants = {
   secret: 'secretKey', // 密钥
-  expiresIn: '60s', // token有效期
+  expiresIn: '2d', // token有效期
 };

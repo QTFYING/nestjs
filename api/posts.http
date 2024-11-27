@@ -2,6 +2,7 @@
 @port = 3000
 @host = {{hostname}}:{{port}}
 @ct = application/json
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IuS9oOS9oOS9oCIsImlhdCI6MTczMjY3MzgxMCwiZXhwIjoxNzMyODQ2NjEwfQ.Pt0MzSWq2xi2vkUPKwy0tdm2gSYI66wiIBN_WIuAp24
 
 
 
@@ -18,9 +19,10 @@ Content-Type: {{ct}}
   "type": 1
 }
 
-### @name 获取帖子列表
+### @name 获取帖子列表 (需要登录时)
 GET {{host}}/posts/list HTTP/1.1
 Content-Type: {{ct}}
+Authorization: Bearer {{token}}
 
 {
   "pageNo": 1,
@@ -32,6 +34,7 @@ Content-Type: {{ct}}
 POST https://opsefcs.qa.tongcaitong.com/tenant/getTenants HTTP/1.1
 Accept: {{ct}}
 Content-Type: {{ct}}
+Authorization: Bearer {{token}}
 
 {
   "title": "帖子1",
@@ -44,3 +47,4 @@ Content-Type: {{ct}}
 ### @name 删除帖子
 Delete {{host}}/posts/list/1 HTTP/1.1
 Content-Type: {{ct}}
+Authorization: Bearer {{token}}
