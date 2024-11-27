@@ -1,4 +1,4 @@
-# compiled output
+# Compiled Output
 /dist
 /node_modules
 
@@ -9,7 +9,6 @@ npm-debug.log*
 pnpm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-lerna-debug.log*
 
 # OS
 .DS_Store
@@ -22,4 +21,7 @@ lerna-debug.log*
 !.vscode/extensions.json
 
 # Dev_Containers
-/data/* 
+/data/*
+
+# Upload Files
+/uploads/*

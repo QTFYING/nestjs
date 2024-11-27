@@ -10,6 +10,7 @@ import { envConfig, ormConnectOptions } from './common/config';
 import { RedisModule } from './common/redis/redis.module';
 import { RedisService } from './common/redis/redis.service';
 import { PostsModule } from './posts/posts.module';
+import { UploadModule } from './upload/upload.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { PostsModule } from './posts/posts.module';
     PostsModule,
     AuthModule,
     RedisModule,
+    UploadModule,
   ],
   controllers: [AppController],
   providers: [
