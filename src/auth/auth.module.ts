@@ -12,6 +12,7 @@ import JwtAuthStrategy from './jwt-auth.strategy';
   imports: [
     TypeOrmModule.forFeature([AuthEntity]),
     JwtModule.register({
+      global: true, // 将 JwtService 注册为全局对象
       secret: jwtConstants.secret,
       signOptions: { expiresIn: jwtConstants.expiresIn },
     }),

@@ -6,7 +6,7 @@
 
 一些mysql的常见操作命令
 
-``` shell
+```shell
 mysql -u root -p -h 127.0.0.1 // 执行命令后会让输入密码
 lsof -i :3306 // 查看3306端口是否已经启用
 kill 1234  或者 kill -9 1234 // 1234 为PID
