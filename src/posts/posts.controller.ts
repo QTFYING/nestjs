@@ -8,6 +8,7 @@ import {
   Put,
   Query,
 } from '@nestjs/common';
+import { Public } from 'src/common/decorators';
 import { CreatePostDto } from './dto/create-post.dto';
 import { PostsService } from './posts.service';
 
@@ -48,5 +49,12 @@ export class PostsController {
   @Delete('list/:id')
   async remove(@Param('id') id) {
     return await this.postsService.remove(id);
+  }
+
+  // 拉取掘金热门文章
+  @Public()
+  @Get('juejin')
+  async getHotPostsOfJueJin() {
+    return await this.postsService.getHotPostsOfJueJin();
   }
 }
